@@ -20,7 +20,10 @@ M.setup = function(user_config)
         user_config.use == nil
         or not vim.tbl_contains({ 'fzf', 'telescope' }, user_config.use)
     then
-        vim.notify_once 'http-codes.nvim: must specify `use = {fzf,telescope}` in setup.'
+        vim.notify_once(
+            'http-codes.nvim: must specify `use = {fzf,telescope}` in setup.',
+            vim.log.levels.ERROR
+        )
         return
     end
 
