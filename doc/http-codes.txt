@@ -24,8 +24,8 @@ Parameters: ~
 Usage: ~
 >lua
     require('http-codes').setup({
-        -- *REQUIRED*: 'fzf' or 'telescope'
-        use = 'fzf',
+        -- defaults to available picker: 'fzf-lua' or 'telescope'
+        use = 'fzf-lua'
         -- How the mozilla url is opened.
         -- Configured by default based on OS:
         open_url = 'xdg-open %s' -- UNIX
