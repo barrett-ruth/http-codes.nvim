@@ -4,11 +4,11 @@ local pickers = require 'telescope.pickers'
 local sorters = require 'telescope.sorters'
 local state = require 'telescope.actions.state'
 
-local codes = require 'telescope._extensions.http.codes'
+local codes = require 'http-codes.codes'
 
-return function(_, http_opts)
+return function(open_url)
     pickers
-        .new(_, {
+        .new(nil, {
             prompt_title = 'HTTP Codes',
             finder = finders.new_table {
                 results = vim.tbl_keys(codes),
@@ -21,7 +21,7 @@ return function(_, http_opts)
                     local selection = state.get_selected_entry()
                     local link = codes[selection[1]]
 
-                    vim.fn.jobstart(http_opts.open_url:format(link))
+                    vim.fn.jobstart(open_url:format(link))
                 end)
                 return true
             end,

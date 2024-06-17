@@ -1,0 +1,42 @@
+http-codes *http-codes.txt*
+
+Author: Barrett Ruth <https://barrettruth.com>
+Homepage: <https://github.com/barrett-ruth/http-codes.nvim>
+
+===============================================================================
+INTRODUCTION                                                 *http-codes.nvim*
+
+https-codes.nvim lets you quickly investigate HTTP status codes with mozilla,
+supporting fzf-lua and telescope.nvim.
+
+Author: Barrett Ruth <https://barrettruth.com>
+
+===============================================================================
+SETUP                                                     *http-codes.setup()*
+>lua
+    require('http-codes').setup(config)
+<
+Parameters: ~
+
+    {config} `(table)`: table containing configuration for http-codes.
+                      Defaults shown below.
+
+Usage: ~
+>lua
+    require('http-codes').setup({
+        -- *REQUIRED*: 'fzf' or 'telescope'
+        use = 'fzf',
+        -- How the mozilla url is opened.
+        -- Configured by default based on OS:
+        open_url = 'xdg-open %s' -- UNIX
+              -- = 'open %s'     -- OSX
+              -- = 'start %s'    -- Windows
+    })
+<
+===============================================================================
+COMMANDS                                                 *http-codes.commands*
+
+:HTTPCodes            Browse HTTP codes using the configured picker.
+
+-------------------------------------------------------------------------------
+vim:tw=80:ft=help:

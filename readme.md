@@ -1,55 +1,49 @@
-# telescope-http.nvim
+# http-codes.nvim
 
-Quickly investigate HTTP status codes with the help of
-[telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
-and [mozilla](https://developer.mozilla.org/en-US/docs/Web/HTTP).
+Quickly investigate HTTP status codes with the help of [mozilla](https://developer.mozilla.org/en-US/docs/Web/HTTP), including [telescope](https://github.com/barrett-ruth/telescope-http.nvim/) and [fzf-lua](https://github.com/ibhagwan/fzf-lua) integrations.
 
 ## Installation
 
-Install via your favorite package manager, like [paq](https://github.com/savq/paq-nvim):
+Install via your favorite package manager, like [lazy](https://github.com/folke/lazy.nvim):
 
 ```lua
-require 'paq' {
-    'savq/paq-nvim',
-    'barrett-ruth/telescope-http.nvim'
-}
-```
-
-Then load the extension:
-
-```lua
-require('telescope').load_extension 'http'
-```
-
-## Dependencies
-
-- [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
-
-## Configuration
-
-```lua
-require('telescope').setup {
-    extensions = {
-        http = {
-            -- How the mozilla url is opened. By default will be configured based on OS:
+require('lazy').setup({
+    {
+        'barrett-ruth/http-codes.nvim'
+        opts = {
+            -- *REQUIRED*: 'fzf' or 'telescope'
+            use = 'fzf',
+            -- How the mozilla url is opened.
+            -- Configured by default based on OS:
             open_url = 'xdg-open %s' -- UNIX
-            -- open_url = 'open %s' -- OSX
-            -- open_url = 'start %s' -- Windows
-        }
+                  -- = 'open %s'     -- OSX
+                  -- = 'start %s'    -- Windows
+        },
+        dependencies = {
+            -- choose your picker:
+            'ibhagwan/fzf-lua'
+         -- 'nvim-telescope/telescope.nvim',
+        },
     }
-}
+})
 ```
+
+## [Configuration](./doc/http-codes.txt)
 
 ## Usage
 
-Creating a mapping for the following command in vim:
-
-```vim
-:Telescope http list
-```
-
-or lua:
+Use the exposed command in vimscript:
 
 ```lua
-require('telescope').extensions.http.list()
+:HTTPCodes
 ```
+
+or in lua:
+
+```lua
+require('http-codes').http_codes()
+```
+
+## Migration
+
+If migrating from [telescope-http.nvim](https://github.com/barrett-ruth/telescope-http.nvim), follow the above instructions&mdash;no telescope-specific config is necessary.
