@@ -10,15 +10,7 @@ Install via your favorite package manager, like [lazy](https://github.com/folke/
 require('lazy').setup({
     {
         'barrett-ruth/http-codes.nvim'
-        opts = {
-            -- defaults to available picker: 'fzf-lua' or 'telescope'
-            use = 'fzf-lua'
-            -- How the mozilla url is opened.
-            -- Configured by default based on OS:
-            open_url = 'xdg-open %s' -- UNIX
-                  -- = 'open %s'     -- OSX
-                  -- = 'start %s'    -- Windows
-        },
+        config = true,
         -- or 'nvim-telescope/telescope.nvim'
         dependencies = 'ibhagwan/fzf-lua'
     }
@@ -26,6 +18,18 @@ require('lazy').setup({
 ```
 
 ## [Configuration](./doc/http-codes.txt)
+
+`http-codes.nvim` uses telescope or fzf-lua (whichever you've installed), which can be manually overriden.
+
+`http-codes.nvim` opens the Mozilla documentation URLs based on your operating system. This can be overriden.
+
+| OS      | open_url      |
+| ------- | ------------- |
+| Windows | `start %s`    |
+| OSX     | `open %s`     |
+| UNIX    | `xdg-open %s` |
+
+See [the docs](./doc/http-codes.txt) for more information.
 
 ## Usage
 
