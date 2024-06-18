@@ -13,15 +13,16 @@ require('lazy').setup({
         config = true,
         -- or 'nvim-telescope/telescope.nvim'
         dependencies = 'ibhagwan/fzf-lua'
+        keys = { { '<leader>H', '<cmd>HTTPCodes<cr>' }}
     }
 })
 ```
 
 ## [Configuration](./doc/http-codes.txt)
 
-`http-codes.nvim` uses telescope or fzf-lua (whichever you've installed), which can be manually overriden.
+`http-codes.nvim` uses telescope or fzf-lua (whichever you've installed), which can be manually overidden.
 
-`http-codes.nvim` opens the Mozilla documentation URLs based on your operating system. This can be overriden.
+`http-codes.nvim` opens the Mozilla documentation URLs based on your operating system. This can be overidden.
 
 | OS      | open_url      |
 | ------- | ------------- |
