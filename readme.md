@@ -9,7 +9,7 @@ Install via your favorite package manager, like [lazy](https://github.com/folke/
 ```lua
 require('lazy').setup({
     {
-        'barrett-ruth/http-codes.nvim'
+        'barrett-ruth/http-codes.nvim',
         config = true,
         -- or 'nvim-telescope/telescope.nvim'
         dependencies = 'ibhagwan/fzf-lua'
